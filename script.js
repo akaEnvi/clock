@@ -1,3 +1,5 @@
+//Uhr  zweistellig anzeigen lassen
+
 //------------Digitale Uhr...............
 
 const sec = document.querySelector(".sec");
@@ -7,13 +9,21 @@ const h = document.querySelector(".h");
 function logTime() {
   console.log(new Date());
   const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const second = now.getSeconds();
+  const hours = toDecimal(now.getHours());
+  const minutes = toDecimal(now.getMinutes());
+  const second = toDecimal(now.getSeconds());
 
   h.innerText = hours;
   min.innerText = ":" + minutes;
   sec.innerText = ":" + second;
+}
+
+function toDecimal(n) {
+  if (n < 10) {
+    return "0" + n;
+  } else {
+    return n;
+  }
 }
 
 //------------Analoge Uhr...............
